@@ -4,6 +4,6 @@
 #include <SDL2/SDL.h>
 
 int main(){
-   std::cout<<"ffffffffffffffffffffffffffuuuuuuuuuuuuuuuuukkkkkkkkkkkkkkk it";
+   fmt::print(":>10{}","wow");
    return 12;
 }
