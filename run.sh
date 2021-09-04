@@ -2,7 +2,7 @@
 
 exe=lol
 build_dir=build
-
+clear
 style_ok() {
    tput bold
    tput setaf 2
@@ -48,14 +48,23 @@ cmake_run() {
       echo "deleted build directory ${build_dir} ${exe}"
       tput sgr0
    fi
-   cmake -S./ -B ${build_dir} -D CMAKE_BUILD_TYPE=Debug -D CMAKE_CXX_COMPILER=clang++ -G "Ninja"
+   cmake -S./ -B ${build_dir} -D CMAKE_BUILD_TYPE=Debug -G "Ninja" -D CMAKE_CXX_COMPILER=clang++ 
+   # -DCMAKE_TOOLCHAIN_FILE=/home/babayaga/Android/Sdk/ndk/22.1.7171670/build/cmake/android.toolchain.cmake
+   #
    if [[ -d "${build_dir}" ]]; then
       cmake_build
    fi
 }
 
 if [[ $1 = conan ]]; then
-   conan install ./conan -if=./conan_cmake --build=missing --profile=./conan/clang
+   if [[ -d "conan_cmake" ]]; then
+      rm -r conan_cmake
+      style_ok
+      echo "deleted build directory conan_cmake"
+      tput sgr0
+   fi
+   conan install ./conan -if=./conan_cmake --profile=./conan/clang --build=missing 
+   #--profile=./conan/armp
 fi
 
 if [[ $1 = f ]]; then

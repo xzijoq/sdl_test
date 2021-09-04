@@ -1,0 +1,14 @@
+
+[settings]
+arch=armv8
+build_type=Release
+compiler=clang
+compiler.libcxx=libc++
+compiler.version=11
+os=Android
+os.api_level=21
+[build_requires]
+[options]
+
+[env]
+CONAN_CMAKE_TOOLCHAIN_FILE=/home/babayaga/code/sdl_test/conan/toll.cmake

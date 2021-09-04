@@ -1,9 +1,10 @@
+
 #include <iostream>
+#include <openssl/crypto.h>
+#include <fmt/format.h>
 
-#include <fmt/core.h>
-#include <SDL2/SDL.h>
+int main(int argc,char** argv){
+   fmt::print("wow");
 
-int main(){
-   fmt::print(":>10{}","wow");
    return 12;
 }

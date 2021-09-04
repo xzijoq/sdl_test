@@ -1,6 +1,12 @@
+
 [requires]
-fmt/[>=8.0.1]
+#fmt/[>=8.0.1]
 #boost/[>=1.76.0]
+fmt/[>=8.0.1]
+openssl/[>=1.1.1k]
 
 [generators]
-cmake_find_package_multi
+cmake_find_package
+[options]
+openssl:shared=False
+
